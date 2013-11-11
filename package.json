@@ -1,0 +1,16 @@
+{
+  "name": "splc-record",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "3.4.x",
+    "mongoose": "3.8.x",
+    "twilio": "1.4.x",
+    "jade": "0.35.x",
+    "i18n-2": "0.4.x",
+    "moment": "2.4.0"
+  },
+  "engines": {
+    "node": "0.8.x",
+    "npm": "1.2.x"
+  }
+}

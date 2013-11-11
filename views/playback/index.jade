@@ -1,0 +1,7 @@
+!!! xml
+Response
+  Gather(timeout="10", action="/playback/input?lang=" + getLocale())
+    Say(voice="woman", language=getLocale())=__('Hello.')
+    include _menu
+  Redirect="/playback/error?lang=" + getLocale()
+

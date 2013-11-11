@@ -1,0 +1,6 @@
+!!! xml
+Response
+  Gather(timeout="10", action="/playback/input?lang=" + getLocale())
+    include _menu
+  Redirect="/playback/error?lang=" + getLocale()
+

@@ -1,0 +1,9 @@
+!!! xml
+Response
+  Gather(timeout="10", action="/playback/input?lang=" + getLocale())
+    Say(voice="woman", language=getLocale())=__('This is the list of recordings.')
+    - for (var i = 0; i < recordings.length; i++) {
+    Say(voice="woman", language=getLocale())=__('Recording %s was recorded at %s and has a duration of %s seconds.', i + 1, recordings[i].prettyDate(getLocale()), recordings[i].duration)
+    - }
+    include _menu
+  Redirect="/playback/error?lang=" + getLocale()

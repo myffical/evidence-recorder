@@ -1,0 +1,71 @@
+doctype 5
+html(lang=getLocale())
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Evidence Recorder
+    link(href="/css/bootstrap.css", rel="stylesheet")
+    link(href="/css/font-awesome.css", rel="stylesheet")
+  body
+    div(class="navbar navbar-default")
+      div(class="container")
+        div(class="navbar-header")
+          a(class="navbar-brand" href="/?lang=" + getLocale())=__('Evidence Recorder')
+        div(class="navbar-collapse collapse")
+          ul(class="nav navbar-nav")
+            li
+              a(href="?lang=en") English
+            li
+              a(href="?lang=es") Español
+    div(class="container", id="about")
+      div(class="jumbotron")
+        h1=__('Evidence Recorder')
+        p!=__('Evidence Recorder is a phone app for recording voice conversations for use as neutral legal evidence. The app is entirely operated by voice call and can be used with any cell phone. Recordings are stored remotely and cannot be destroyed by tampering with the phone. Recordings can also be made in stealth mode to avoid alerting the other party. The app was created in response to <a href="%s">a challenge by the Southern Poverty Law Center</a>.', 'http://americas.datafest.net/challenges/slpc-2')
+
+    div(class="container", id="usage")
+      div(class="row")
+        div(class="col-md-12")
+        h3=__('Retrieve recordings')
+        form(action="/recordings/", method="get")
+          label(for="number") Phone number
+          input(id="number", name="number", type="text")
+          input(type="submit")
+      div(class="row")
+        div(class="col-md-4")
+          h3=__('Recording')
+          ol
+            li=__('Call %s and place your phone on speaker mode.', recordNumber)
+            li=__('Place your phone on speaker mode.')
+            li=__('You will hear voice instructions and a beep. Recording will start after the beep.')
+            li=__('You may record up to one hour of audio.')
+            li=__('When the recording is complete, hang up.')
+            li=__('You will receive a SMS message with instructions for how to play back your recording.')
+        div(class="col-md-4")
+          h3=__('Stealth Recording')
+          ol
+            li=__('Call %s and place your phone on speaker mode.', stealthNumber)
+            li=__('Recording will immediately and silently start.')
+            li=__('You may record up to one hour of audio.')
+            li=__('When the recording is complete, hang up.')
+            li=__('You will not receive the SMS message with instructions. To play back the recording, follow the playback instructions on this page.')
+            div(class="col-md-4")    
+          p
+            em=__('Note: Stealth recording may not be legal in all jurisdictions.')
+
+        div(class="col-md-4")
+          h3=__('Playback')
+          ol
+            li=__('Call %s.', playbackNumber)
+            li=__('Press the number of the recording, then press the # key.')
+            li=__('Recordings are ordered from the least recent to the most recent. For instance, if you have 5 recordings, the least recent recording will be number 1, and the most recent recording will be number 5.')
+
+    footer
+      div(class="container")
+        p(class="text-muted credit") &copy; Yifan Mai 2013
+    script(src="js/jquery.min.js")
+    script(src="js/jquery.masked.input.min.js")
+    script.
+      $(document).ready(function() {
+        $('#number').mask('(999) 999-9999');
+      });

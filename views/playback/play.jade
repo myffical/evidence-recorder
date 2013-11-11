@@ -1,0 +1,9 @@
+!!! xml
+Response
+  Gather(timeout="10", action="/playback/input?lang=" + getLocale())
+    Say(voice="woman", language=getLocale())=__('Playback begins.')
+    Play #{recordings[index].url}
+    Say(voice="woman", language=getLocale())=__('Playback ended.')
+    Say(voice="woman", language=getLocale())=__('This recording was recorded at %s and has a duration of %s seconds.', recordings[index].prettyDate(getLocale()), recordings[index].duration)
+    include _menu
+  Redirect="/playback/error?lang=" + getLocale()

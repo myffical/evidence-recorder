@@ -1,0 +1,4 @@
+!!! xml
+Response
+  Say(voice="woman", language=getLocale())=__('Hello. This conversation will be recorded after the beep.')
+  Record(timeout="3600", maxLength="3600", action="/record/finish?lang=" + getLocale())
